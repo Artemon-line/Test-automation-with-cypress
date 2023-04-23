@@ -11,7 +11,8 @@
     "chai-subset": "^1.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress": "cypress run --e2e",
+    "cypress:open": "cypress open --e2e"
   },
   "repository": {
     "type": "git",

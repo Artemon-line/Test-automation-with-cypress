@@ -1,0 +1,27 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    container: cypress/base:16.18.1-with-git
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
