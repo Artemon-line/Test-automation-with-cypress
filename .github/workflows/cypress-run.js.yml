@@ -8,10 +8,18 @@ on:
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-20.04
-    container: cypress/base:16.18.1-with-git
+    runs-on: ubuntu-18.04
+    container: 
+      image: cypress/base:16.18.1-with-git
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - uses: cypress-io/github-action@v4
         with:
           browser: chrome
