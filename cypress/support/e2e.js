@@ -18,3 +18,8 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+
+chai.use(require('chai-samsam'))
+
+chai.use(require('chai-subset'))
