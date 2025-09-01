@@ -4,7 +4,7 @@
   "description": "test project demo example",
   "main": "index.js",
   "dependencies": {
-    "cypress": "12.10.0"
+    "cypress": "15.0.0"
   },
   "devDependencies": {
     "chai-samsam": "^0.0.2",
